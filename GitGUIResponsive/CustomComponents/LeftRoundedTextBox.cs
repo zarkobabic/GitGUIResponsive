@@ -37,7 +37,6 @@ namespace GitGUIResponsive.CustomComponents
             BackColor = Color.White;
             Size = new Size(150, 30);
 
-            // Handle click on the control to focus the textbox
             Click += (s, e) => textBox.Focus();
             textBox.TextChanged += (s, e) => OnTextChanged(e);
         }
@@ -46,7 +45,6 @@ namespace GitGUIResponsive.CustomComponents
         {
             base.OnResize(e);
             textBox.Width = Width - 20;
-            // Center the textbox vertically
             textBox.Top = (Height - textBox.Height) / 2;
         }
 
@@ -61,7 +59,6 @@ namespace GitGUIResponsive.CustomComponents
                 rect.Inflate(-2, -2);
                 int diameter = borderRadius * 2;
 
-                // Start from top-left and draw rounded corners only on the left side
                 path.AddArc(rect.X, rect.Y, diameter, diameter, 180, 90);                // Top-left rounded corner
                 path.AddLine(rect.X + diameter, rect.Y, rect.Right, rect.Y);            // Top line
                 path.AddLine(rect.Right, rect.Y, rect.Right, rect.Bottom);              // Right line
@@ -69,13 +66,11 @@ namespace GitGUIResponsive.CustomComponents
                 path.AddArc(rect.X, rect.Bottom - diameter, diameter, diameter, 90, 90); // Bottom-left rounded corner
                 path.CloseFigure();
 
-                // Fill background
                 using (var brush = new SolidBrush(BackColor))
                 {
                     e.Graphics.FillPath(brush, path);
                 }
 
-                // Draw border
                 using (var pen = new Pen(borderColor, borderThickness))
                 {
                     e.Graphics.DrawPath(pen, path);
@@ -83,7 +78,7 @@ namespace GitGUIResponsive.CustomComponents
             }
         }
 
-        // Essential properties
+
         [Browsable(true)]
         public override string Text
         {

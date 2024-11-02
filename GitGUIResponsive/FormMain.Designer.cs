@@ -29,14 +29,26 @@
         private void InitializeComponent()
         {
             pnlMainContainer = new Panel();
+            tblPanelGitLog = new TableLayoutPanel();
+            tableLayoutPanel10 = new TableLayoutPanel();
+            label1 = new Label();
+            txtGitLogResult = new TextBox();
+            tableLayoutPanel11 = new TableLayoutPanel();
+            label2 = new Label();
+            tableLayoutPanel12 = new TableLayoutPanel();
+            tableLayoutPanel13 = new TableLayoutPanel();
+            txtBundleName = new CustomComponents.RoundedTextBoxNew();
+            txtBundleStartingCommit = new CustomComponents.RoundedTextBoxNew();
+            tableLayoutPanel14 = new TableLayoutPanel();
+            btnGitBundle = new CustomComponents.RoundedButtonNew();
             tblPanelGitStatus = new TableLayoutPanel();
             panel3 = new Panel();
+            tableLayoutPanel15 = new TableLayoutPanel();
+            tableLayoutPanel16 = new TableLayoutPanel();
+            btnGitPush = new CustomComponents.RoundedButtonNew();
+            txtGitStatusResult = new TextBox();
             panel17 = new Panel();
             lblGitStatusHeading = new Label();
-            textBox1 = new TextBox();
-            panel4 = new Panel();
-            panel6 = new Panel();
-            btnGitPush = new CustomComponents.RoundedButtonNew();
             panel7 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel8 = new Panel();
@@ -82,11 +94,17 @@
             btnGitBranch = new CustomComponents.RoundedButton();
             btnGitStatus = new CustomComponents.RoundedButton();
             pnlMainContainer.SuspendLayout();
+            tblPanelGitLog.SuspendLayout();
+            tableLayoutPanel10.SuspendLayout();
+            tableLayoutPanel11.SuspendLayout();
+            tableLayoutPanel12.SuspendLayout();
+            tableLayoutPanel13.SuspendLayout();
+            tableLayoutPanel14.SuspendLayout();
             tblPanelGitStatus.SuspendLayout();
             panel3.SuspendLayout();
+            tableLayoutPanel15.SuspendLayout();
+            tableLayoutPanel16.SuspendLayout();
             panel17.SuspendLayout();
-            panel4.SuspendLayout();
-            panel6.SuspendLayout();
             panel7.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel8.SuspendLayout();
@@ -114,6 +132,7 @@
             // 
             // pnlMainContainer
             // 
+            pnlMainContainer.Controls.Add(tblPanelGitLog);
             pnlMainContainer.Controls.Add(tblPanelGitStatus);
             pnlMainContainer.Controls.Add(pnlNavbar);
             pnlMainContainer.Dock = DockStyle.Fill;
@@ -122,6 +141,191 @@
             pnlMainContainer.Padding = new Padding(20);
             pnlMainContainer.Size = new Size(1174, 742);
             pnlMainContainer.TabIndex = 0;
+            // 
+            // tblPanelGitLog
+            // 
+            tblPanelGitLog.ColumnCount = 2;
+            tblPanelGitLog.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            tblPanelGitLog.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tblPanelGitLog.Controls.Add(tableLayoutPanel10, 0, 0);
+            tblPanelGitLog.Controls.Add(tableLayoutPanel11, 1, 0);
+            tblPanelGitLog.Dock = DockStyle.Fill;
+            tblPanelGitLog.Location = new Point(20, 127);
+            tblPanelGitLog.Name = "tblPanelGitLog";
+            tblPanelGitLog.RowCount = 1;
+            tblPanelGitLog.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tblPanelGitLog.Size = new Size(1134, 595);
+            tblPanelGitLog.TabIndex = 4;
+            tblPanelGitLog.Visible = false;
+            // 
+            // tableLayoutPanel10
+            // 
+            tableLayoutPanel10.ColumnCount = 1;
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel10.Controls.Add(label1, 0, 0);
+            tableLayoutPanel10.Controls.Add(txtGitLogResult, 0, 1);
+            tableLayoutPanel10.Dock = DockStyle.Fill;
+            tableLayoutPanel10.Location = new Point(3, 3);
+            tableLayoutPanel10.Name = "tableLayoutPanel10";
+            tableLayoutPanel10.Padding = new Padding(0, 0, 10, 0);
+            tableLayoutPanel10.RowCount = 2;
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 12F));
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 88F));
+            tableLayoutPanel10.Size = new Size(674, 589);
+            tableLayoutPanel10.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(61, 205, 88);
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(658, 70);
+            label1.TabIndex = 0;
+            label1.Text = "Git Log:";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtGitLogResult
+            // 
+            txtGitLogResult.BorderStyle = BorderStyle.None;
+            txtGitLogResult.Dock = DockStyle.Fill;
+            txtGitLogResult.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtGitLogResult.Location = new Point(3, 73);
+            txtGitLogResult.Multiline = true;
+            txtGitLogResult.Name = "txtGitLogResult";
+            txtGitLogResult.ScrollBars = ScrollBars.Both;
+            txtGitLogResult.Size = new Size(658, 513);
+            txtGitLogResult.TabIndex = 1;
+            // 
+            // tableLayoutPanel11
+            // 
+            tableLayoutPanel11.ColumnCount = 1;
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel11.Controls.Add(label2, 0, 0);
+            tableLayoutPanel11.Controls.Add(tableLayoutPanel12, 0, 1);
+            tableLayoutPanel11.Dock = DockStyle.Fill;
+            tableLayoutPanel11.Location = new Point(683, 3);
+            tableLayoutPanel11.Name = "tableLayoutPanel11";
+            tableLayoutPanel11.RowCount = 2;
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 12F));
+            tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 88F));
+            tableLayoutPanel11.Size = new Size(448, 589);
+            tableLayoutPanel11.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(61, 205, 88);
+            label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(3, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(442, 70);
+            label2.TabIndex = 1;
+            label2.Text = "Create a new bundle from a specific commit up to the latest commit:";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel12
+            // 
+            tableLayoutPanel12.ColumnCount = 1;
+            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel12.Controls.Add(tableLayoutPanel13, 0, 0);
+            tableLayoutPanel12.Dock = DockStyle.Fill;
+            tableLayoutPanel12.Location = new Point(3, 73);
+            tableLayoutPanel12.Name = "tableLayoutPanel12";
+            tableLayoutPanel12.RowCount = 2;
+            tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 70F));
+            tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
+            tableLayoutPanel12.Size = new Size(442, 513);
+            tableLayoutPanel12.TabIndex = 2;
+            // 
+            // tableLayoutPanel13
+            // 
+            tableLayoutPanel13.ColumnCount = 1;
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel13.Controls.Add(txtBundleName, 0, 1);
+            tableLayoutPanel13.Controls.Add(txtBundleStartingCommit, 0, 2);
+            tableLayoutPanel13.Controls.Add(tableLayoutPanel14, 0, 3);
+            tableLayoutPanel13.Dock = DockStyle.Fill;
+            tableLayoutPanel13.Location = new Point(3, 3);
+            tableLayoutPanel13.Name = "tableLayoutPanel13";
+            tableLayoutPanel13.Padding = new Padding(10, 0, 10, 0);
+            tableLayoutPanel13.RowCount = 5;
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel13.Size = new Size(436, 353);
+            tableLayoutPanel13.TabIndex = 1;
+            // 
+            // txtBundleName
+            // 
+            txtBundleName.BackColor = Color.White;
+            txtBundleName.BorderColor = Color.FromArgb(63, 64, 69);
+            txtBundleName.BorderRadius = 25;
+            txtBundleName.Dock = DockStyle.Fill;
+            txtBundleName.Font = new Font("Arial Rounded MT Bold", 9.163636F);
+            txtBundleName.Location = new Point(13, 73);
+            txtBundleName.Name = "txtBundleName";
+            txtBundleName.PlaceholderText = "Enter the desired bundle path and name";
+            txtBundleName.Size = new Size(410, 64);
+            txtBundleName.TabIndex = 1;
+            txtBundleName.TextBoxBackground = Color.White;
+            // 
+            // txtBundleStartingCommit
+            // 
+            txtBundleStartingCommit.BackColor = Color.White;
+            txtBundleStartingCommit.BorderColor = Color.FromArgb(63, 64, 69);
+            txtBundleStartingCommit.BorderRadius = 25;
+            txtBundleStartingCommit.Dock = DockStyle.Fill;
+            txtBundleStartingCommit.Font = new Font("Arial Rounded MT Bold", 9.163636F);
+            txtBundleStartingCommit.Location = new Point(13, 143);
+            txtBundleStartingCommit.Name = "txtBundleStartingCommit";
+            txtBundleStartingCommit.PlaceholderText = "Enter the starting commit hash";
+            txtBundleStartingCommit.Size = new Size(410, 64);
+            txtBundleStartingCommit.TabIndex = 0;
+            txtBundleStartingCommit.TextBoxBackground = Color.White;
+            // 
+            // tableLayoutPanel14
+            // 
+            tableLayoutPanel14.ColumnCount = 3;
+            tableLayoutPanel14.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel14.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel14.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel14.Controls.Add(btnGitBundle, 1, 0);
+            tableLayoutPanel14.Dock = DockStyle.Fill;
+            tableLayoutPanel14.Location = new Point(13, 213);
+            tableLayoutPanel14.Name = "tableLayoutPanel14";
+            tableLayoutPanel14.RowCount = 1;
+            tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel14.Size = new Size(410, 64);
+            tableLayoutPanel14.TabIndex = 3;
+            // 
+            // btnGitBundle
+            // 
+            btnGitBundle.BackColor = Color.FromArgb(63, 64, 69);
+            btnGitBundle.BackgroundColor = Color.FromArgb(63, 64, 69);
+            btnGitBundle.BorderColor = Color.FromArgb(63, 64, 69);
+            btnGitBundle.BorderRadius = 20;
+            btnGitBundle.BorderSize = 0;
+            btnGitBundle.Dock = DockStyle.Fill;
+            btnGitBundle.FlatAppearance.BorderSize = 0;
+            btnGitBundle.FlatStyle = FlatStyle.Flat;
+            btnGitBundle.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGitBundle.ForeColor = Color.White;
+            btnGitBundle.Location = new Point(105, 3);
+            btnGitBundle.Name = "btnGitBundle";
+            btnGitBundle.Size = new Size(199, 58);
+            btnGitBundle.TabIndex = 2;
+            btnGitBundle.Text = "Create bundle";
+            btnGitBundle.TextColor = Color.White;
+            btnGitBundle.UseVisualStyleBackColor = false;
+            btnGitBundle.Click += btnGitBundle_Click;
             // 
             // tblPanelGitStatus
             // 
@@ -138,20 +342,80 @@
             tblPanelGitStatus.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tblPanelGitStatus.Size = new Size(1134, 595);
             tblPanelGitStatus.TabIndex = 3;
-            tblPanelGitStatus.Paint += tblPanelGitStatus_Paint;
             // 
             // panel3
             // 
+            panel3.Controls.Add(tableLayoutPanel15);
             panel3.Controls.Add(panel17);
-            panel3.Controls.Add(textBox1);
-            panel3.Controls.Add(panel4);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(3, 3);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(0, 0, 10, 0);
             panel3.Size = new Size(663, 589);
             panel3.TabIndex = 0;
-            panel3.Paint += panel3_Paint;
+            // 
+            // tableLayoutPanel15
+            // 
+            tableLayoutPanel15.ColumnCount = 1;
+            tableLayoutPanel15.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel15.Controls.Add(tableLayoutPanel16, 0, 1);
+            tableLayoutPanel15.Controls.Add(txtGitStatusResult, 0, 0);
+            tableLayoutPanel15.Dock = DockStyle.Fill;
+            tableLayoutPanel15.Location = new Point(0, 49);
+            tableLayoutPanel15.Name = "tableLayoutPanel15";
+            tableLayoutPanel15.RowCount = 2;
+            tableLayoutPanel15.RowStyles.Add(new RowStyle(SizeType.Percent, 88F));
+            tableLayoutPanel15.RowStyles.Add(new RowStyle(SizeType.Percent, 12F));
+            tableLayoutPanel15.Size = new Size(653, 540);
+            tableLayoutPanel15.TabIndex = 5;
+            // 
+            // tableLayoutPanel16
+            // 
+            tableLayoutPanel16.ColumnCount = 2;
+            tableLayoutPanel16.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanel16.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            tableLayoutPanel16.Controls.Add(btnGitPush, 0, 0);
+            tableLayoutPanel16.Dock = DockStyle.Fill;
+            tableLayoutPanel16.Location = new Point(3, 478);
+            tableLayoutPanel16.Name = "tableLayoutPanel16";
+            tableLayoutPanel16.RowCount = 1;
+            tableLayoutPanel16.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel16.Size = new Size(647, 59);
+            tableLayoutPanel16.TabIndex = 2;
+            // 
+            // btnGitPush
+            // 
+            btnGitPush.BackColor = Color.FromArgb(63, 64, 69);
+            btnGitPush.BackgroundColor = Color.FromArgb(63, 64, 69);
+            btnGitPush.BorderColor = Color.FromArgb(63, 64, 69);
+            btnGitPush.BorderRadius = 20;
+            btnGitPush.BorderSize = 0;
+            btnGitPush.Dock = DockStyle.Fill;
+            btnGitPush.FlatAppearance.BorderSize = 0;
+            btnGitPush.FlatStyle = FlatStyle.Flat;
+            btnGitPush.Font = new Font("Arial Rounded MT Bold", 9.818182F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGitPush.ForeColor = Color.White;
+            btnGitPush.Location = new Point(15, 5);
+            btnGitPush.Margin = new Padding(15, 5, 15, 5);
+            btnGitPush.Name = "btnGitPush";
+            btnGitPush.Size = new Size(164, 49);
+            btnGitPush.TabIndex = 1;
+            btnGitPush.Text = "Git push";
+            btnGitPush.TextColor = Color.White;
+            btnGitPush.UseVisualStyleBackColor = false;
+            btnGitPush.Click += btnGitPush_Click;
+            // 
+            // txtGitStatusResult
+            // 
+            txtGitStatusResult.BorderStyle = BorderStyle.None;
+            txtGitStatusResult.Dock = DockStyle.Fill;
+            txtGitStatusResult.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtGitStatusResult.Location = new Point(3, 3);
+            txtGitStatusResult.Multiline = true;
+            txtGitStatusResult.Name = "txtGitStatusResult";
+            txtGitStatusResult.ScrollBars = ScrollBars.Both;
+            txtGitStatusResult.Size = new Size(647, 469);
+            txtGitStatusResult.TabIndex = 3;
             // 
             // panel17
             // 
@@ -166,7 +430,7 @@
             // lblGitStatusHeading
             // 
             lblGitStatusHeading.BackColor = Color.FromArgb(61, 205, 88);
-            lblGitStatusHeading.Dock = DockStyle.Fill;
+            lblGitStatusHeading.Dock = DockStyle.Top;
             lblGitStatusHeading.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblGitStatusHeading.ForeColor = Color.White;
             lblGitStatusHeading.Location = new Point(0, 3);
@@ -175,55 +439,6 @@
             lblGitStatusHeading.TabIndex = 0;
             lblGitStatusHeading.Text = "Git status:";
             lblGitStatusHeading.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // textBox1
-            // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Location = new Point(0, 0);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(653, 526);
-            textBox1.TabIndex = 3;
-            textBox1.Text = "asdsdasd";
-            textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(panel6);
-            panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(0, 526);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(653, 63);
-            panel4.TabIndex = 2;
-            // 
-            // panel6
-            // 
-            panel6.Controls.Add(btnGitPush);
-            panel6.Dock = DockStyle.Left;
-            panel6.Location = new Point(0, 0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(208, 63);
-            panel6.TabIndex = 4;
-            // 
-            // btnGitPush
-            // 
-            btnGitPush.BackColor = Color.FromArgb(63, 64, 69);
-            btnGitPush.BackgroundColor = Color.FromArgb(63, 64, 69);
-            btnGitPush.BorderColor = Color.FromArgb(63, 64, 69);
-            btnGitPush.BorderRadius = 20;
-            btnGitPush.BorderSize = 0;
-            btnGitPush.FlatAppearance.BorderSize = 0;
-            btnGitPush.FlatStyle = FlatStyle.Flat;
-            btnGitPush.Font = new Font("Arial Rounded MT Bold", 9.818182F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnGitPush.ForeColor = Color.White;
-            btnGitPush.Location = new Point(0, 12);
-            btnGitPush.Name = "btnGitPush";
-            btnGitPush.Size = new Size(208, 50);
-            btnGitPush.TabIndex = 1;
-            btnGitPush.Text = "Git push";
-            btnGitPush.TextColor = Color.White;
-            btnGitPush.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
@@ -335,7 +550,7 @@
             btnGitCommit.Text = "Git commit";
             btnGitCommit.TextColor = Color.White;
             btnGitCommit.UseVisualStyleBackColor = false;
-            btnGitCommit.Click += rightRoundedButton1_Click;
+            btnGitCommit.Click += btnGitCommit_Click;
             // 
             // lblGitCommitHeader
             // 
@@ -350,7 +565,6 @@
             lblGitCommitHeader.TabIndex = 4;
             lblGitCommitHeader.Text = "Git commit:";
             lblGitCommitHeader.TextAlign = ContentAlignment.MiddleCenter;
-            lblGitCommitHeader.Click += label1_Click;
             // 
             // panel9
             // 
@@ -439,6 +653,7 @@
             btnGitRestore.Text = "Git restore";
             btnGitRestore.TextColor = Color.White;
             btnGitRestore.UseVisualStyleBackColor = false;
+            btnGitRestore.Click += btnGitRestore_Click;
             // 
             // tableLayoutPanel5
             // 
@@ -474,6 +689,7 @@
             btnGitRestoreAll.Text = "Git restore all changes";
             btnGitRestoreAll.TextColor = Color.White;
             btnGitRestoreAll.UseVisualStyleBackColor = false;
+            btnGitRestoreAll.Click += btnGitRestoreAll_Click;
             // 
             // lblGitRestoreHeader
             // 
@@ -558,6 +774,7 @@
             btnGitAdd.Text = "Git add";
             btnGitAdd.TextColor = Color.White;
             btnGitAdd.UseVisualStyleBackColor = false;
+            btnGitAdd.Click += btnGitAdd_Click;
             // 
             // txtFilePathToGitAdd
             // 
@@ -608,6 +825,7 @@
             btnGitAddAll.Text = "Git add all changes";
             btnGitAddAll.TextColor = Color.White;
             btnGitAddAll.UseVisualStyleBackColor = false;
+            btnGitAddAll.Click += btnGitAddAll_Click;
             // 
             // lblGitAddHeader
             // 
@@ -679,6 +897,7 @@
             btnGitStashApply.Text = "Apply";
             btnGitStashApply.TextColor = Color.White;
             btnGitStashApply.UseVisualStyleBackColor = false;
+            btnGitStashApply.Click += btnGitStashApply_Click;
             // 
             // btnGitStashPop
             // 
@@ -700,6 +919,7 @@
             btnGitStashPop.Text = "Pop";
             btnGitStashPop.TextColor = Color.White;
             btnGitStashPop.UseVisualStyleBackColor = false;
+            btnGitStashPop.Click += btnGitStashPop_Click;
             // 
             // btnGitStash
             // 
@@ -721,6 +941,7 @@
             btnGitStash.Text = "Stash";
             btnGitStash.TextColor = Color.White;
             btnGitStash.UseVisualStyleBackColor = false;
+            btnGitStash.Click += btnGitStash_Click;
             // 
             // lblGitStashHeader
             // 
@@ -837,6 +1058,7 @@
             btnGitLog.Text = "Logs";
             btnGitLog.TextColor = Color.White;
             btnGitLog.UseVisualStyleBackColor = false;
+            btnGitLog.Click += btnGitLog_Click;
             // 
             // btnGitBranch
             // 
@@ -875,6 +1097,7 @@
             btnGitStatus.Text = "Status";
             btnGitStatus.TextColor = Color.White;
             btnGitStatus.UseVisualStyleBackColor = false;
+            btnGitStatus.Click += btnGitStatus_Click;
             // 
             // FormMain
             // 
@@ -886,14 +1109,21 @@
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormMain";
-            Load += FormMain_Load;
             pnlMainContainer.ResumeLayout(false);
+            tblPanelGitLog.ResumeLayout(false);
+            tableLayoutPanel10.ResumeLayout(false);
+            tableLayoutPanel10.PerformLayout();
+            tableLayoutPanel11.ResumeLayout(false);
+            tableLayoutPanel11.PerformLayout();
+            tableLayoutPanel12.ResumeLayout(false);
+            tableLayoutPanel13.ResumeLayout(false);
+            tableLayoutPanel14.ResumeLayout(false);
             tblPanelGitStatus.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            tableLayoutPanel15.ResumeLayout(false);
+            tableLayoutPanel15.PerformLayout();
+            tableLayoutPanel16.ResumeLayout(false);
             panel17.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel6.ResumeLayout(false);
             panel7.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel8.ResumeLayout(false);
@@ -938,9 +1168,6 @@
         private CustomComponents.RoundedButton btnGitStatus;
         private Panel panel5;
         private CustomComponents.RoundedButtonNew btnGitPush;
-        private Panel panel4;
-        private Panel panel6;
-        private TextBox textBox1;
         private Panel panel7;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel8;
@@ -976,5 +1203,20 @@
         private CustomComponents.RoundedButtonNew btnGitStashApply;
         private CustomComponents.RoundedButtonNew btnGitStashPop;
         private CustomComponents.RoundedButtonNew btnGitStash;
+        private TableLayoutPanel tblPanelGitLog;
+        private TableLayoutPanel tableLayoutPanel10;
+        private Label label1;
+        private TableLayoutPanel tableLayoutPanel11;
+        private Label label2;
+        private TextBox txtGitLogResult;
+        private TableLayoutPanel tableLayoutPanel12;
+        private TableLayoutPanel tableLayoutPanel13;
+        private CustomComponents.RoundedTextBoxNew txtBundleStartingCommit;
+        private CustomComponents.RoundedTextBoxNew txtBundleName;
+        private CustomComponents.RoundedButtonNew btnGitBundle;
+        private TableLayoutPanel tableLayoutPanel14;
+        private TableLayoutPanel tableLayoutPanel15;
+        private TableLayoutPanel tableLayoutPanel16;
+        private TextBox txtGitStatusResult;
     }
 }
