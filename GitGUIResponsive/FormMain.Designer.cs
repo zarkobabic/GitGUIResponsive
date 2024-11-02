@@ -93,6 +93,24 @@
             btnGitLog = new CustomComponents.RoundedButton();
             btnGitBranch = new CustomComponents.RoundedButton();
             btnGitStatus = new CustomComponents.RoundedButton();
+            tableLayoutPanel17 = new TableLayoutPanel();
+            tableLayoutPanel18 = new TableLayoutPanel();
+            tableLayoutPanel19 = new TableLayoutPanel();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            tableLayoutPanel20 = new TableLayoutPanel();
+            txtRemoteBranchNameToFetch = new CustomComponents.LeftRoundedTextBox();
+            btnGitFetch = new CustomComponents.RightRoundedButton();
+            panel4 = new Panel();
+            panel6 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            roundedButtonNew1 = new CustomComponents.RoundedButtonNew();
+            label6 = new Label();
+            panel18 = new Panel();
+            pictureBox1 = new PictureBox();
+            tblPanelGitBranchInfoHolder = new TableLayoutPanel();
             pnlMainContainer.SuspendLayout();
             tblPanelGitLog.SuspendLayout();
             tableLayoutPanel10.SuspendLayout();
@@ -128,10 +146,21 @@
             panel2.SuspendLayout();
             panel5.SuspendLayout();
             panel1.SuspendLayout();
+            tableLayoutPanel17.SuspendLayout();
+            tableLayoutPanel18.SuspendLayout();
+            tableLayoutPanel19.SuspendLayout();
+            tableLayoutPanel20.SuspendLayout();
+            panel4.SuspendLayout();
+            panel6.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            tblPanelGitBranchInfoHolder.SuspendLayout();
             SuspendLayout();
             // 
             // pnlMainContainer
             // 
+            pnlMainContainer.Controls.Add(tableLayoutPanel17);
             pnlMainContainer.Controls.Add(tblPanelGitLog);
             pnlMainContainer.Controls.Add(tblPanelGitStatus);
             pnlMainContainer.Controls.Add(pnlNavbar);
@@ -1099,6 +1128,257 @@
             btnGitStatus.UseVisualStyleBackColor = false;
             btnGitStatus.Click += btnGitStatus_Click;
             // 
+            // tableLayoutPanel17
+            // 
+            tableLayoutPanel17.ColumnCount = 2;
+            tableLayoutPanel17.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel17.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel17.Controls.Add(tableLayoutPanel18, 1, 0);
+            tableLayoutPanel17.Controls.Add(tableLayoutPanel19, 0, 0);
+            tableLayoutPanel17.Dock = DockStyle.Fill;
+            tableLayoutPanel17.Location = new Point(20, 127);
+            tableLayoutPanel17.Name = "tableLayoutPanel17";
+            tableLayoutPanel17.RowCount = 1;
+            tableLayoutPanel17.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel17.Size = new Size(1134, 595);
+            tableLayoutPanel17.TabIndex = 5;
+            // 
+            // tableLayoutPanel18
+            // 
+            tableLayoutPanel18.ColumnCount = 1;
+            tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel18.Controls.Add(label4, 0, 0);
+            tableLayoutPanel18.Controls.Add(label5, 0, 2);
+            tableLayoutPanel18.Controls.Add(tableLayoutPanel20, 0, 3);
+            tableLayoutPanel18.Controls.Add(flowLayoutPanel2, 0, 1);
+            tableLayoutPanel18.Dock = DockStyle.Fill;
+            tableLayoutPanel18.Location = new Point(570, 3);
+            tableLayoutPanel18.Name = "tableLayoutPanel18";
+            tableLayoutPanel18.RowCount = 4;
+            tableLayoutPanel18.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel18.RowStyles.Add(new RowStyle(SizeType.Percent, 65F));
+            tableLayoutPanel18.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel18.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+            tableLayoutPanel18.Size = new Size(561, 589);
+            tableLayoutPanel18.TabIndex = 0;
+            // 
+            // tableLayoutPanel19
+            // 
+            tableLayoutPanel19.ColumnCount = 1;
+            tableLayoutPanel19.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel19.Controls.Add(label3, 0, 0);
+            tableLayoutPanel19.Controls.Add(flowLayoutPanel1, 0, 1);
+            tableLayoutPanel19.Dock = DockStyle.Fill;
+            tableLayoutPanel19.Location = new Point(3, 3);
+            tableLayoutPanel19.Name = "tableLayoutPanel19";
+            tableLayoutPanel19.RowCount = 2;
+            tableLayoutPanel19.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel19.RowStyles.Add(new RowStyle(SizeType.Percent, 90F));
+            tableLayoutPanel19.Size = new Size(561, 589);
+            tableLayoutPanel19.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.FromArgb(61, 205, 88);
+            label3.Dock = DockStyle.Fill;
+            label3.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(3, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(555, 58);
+            label3.TabIndex = 0;
+            label3.Text = "Git branches:";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.FromArgb(61, 205, 88);
+            label4.Dock = DockStyle.Fill;
+            label4.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(3, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(555, 58);
+            label4.TabIndex = 1;
+            label4.Text = "Remote branches references:";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.FromArgb(61, 205, 88);
+            label5.Dock = DockStyle.Fill;
+            label5.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(3, 440);
+            label5.Name = "label5";
+            label5.Size = new Size(555, 58);
+            label5.TabIndex = 2;
+            label5.Text = "Fetch new remote branch:";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel20
+            // 
+            tableLayoutPanel20.ColumnCount = 2;
+            tableLayoutPanel20.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65F));
+            tableLayoutPanel20.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            tableLayoutPanel20.Controls.Add(panel4, 0, 0);
+            tableLayoutPanel20.Controls.Add(panel6, 1, 0);
+            tableLayoutPanel20.Dock = DockStyle.Fill;
+            tableLayoutPanel20.Location = new Point(3, 501);
+            tableLayoutPanel20.Name = "tableLayoutPanel20";
+            tableLayoutPanel20.RowCount = 1;
+            tableLayoutPanel20.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel20.Size = new Size(555, 85);
+            tableLayoutPanel20.TabIndex = 3;
+            // 
+            // txtRemoteBranchNameToFetch
+            // 
+            txtRemoteBranchNameToFetch.BackColor = Color.White;
+            txtRemoteBranchNameToFetch.BorderColor = Color.FromArgb(63, 64, 69);
+            txtRemoteBranchNameToFetch.BorderRadius = 15;
+            txtRemoteBranchNameToFetch.Dock = DockStyle.Fill;
+            txtRemoteBranchNameToFetch.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtRemoteBranchNameToFetch.Location = new Point(10, 10);
+            txtRemoteBranchNameToFetch.Margin = new Padding(0);
+            txtRemoteBranchNameToFetch.Name = "txtRemoteBranchNameToFetch";
+            txtRemoteBranchNameToFetch.PlaceholderText = "Enter remote branch name";
+            txtRemoteBranchNameToFetch.Size = new Size(350, 65);
+            txtRemoteBranchNameToFetch.TabIndex = 0;
+            txtRemoteBranchNameToFetch.TextBoxBackground = Color.White;
+            // 
+            // btnGitFetch
+            // 
+            btnGitFetch.BackColor = Color.FromArgb(63, 64, 69);
+            btnGitFetch.BackgroundColor = Color.FromArgb(63, 64, 69);
+            btnGitFetch.BorderColor = Color.FromArgb(63, 64, 69);
+            btnGitFetch.BorderRadius = 40;
+            btnGitFetch.BorderSize = 0;
+            btnGitFetch.Dock = DockStyle.Fill;
+            btnGitFetch.FlatAppearance.BorderSize = 0;
+            btnGitFetch.FlatStyle = FlatStyle.Flat;
+            btnGitFetch.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGitFetch.ForeColor = Color.White;
+            btnGitFetch.Location = new Point(0, 10);
+            btnGitFetch.Margin = new Padding(0);
+            btnGitFetch.Name = "btnGitFetch";
+            btnGitFetch.Size = new Size(185, 65);
+            btnGitFetch.TabIndex = 1;
+            btnGitFetch.Text = "Fetch";
+            btnGitFetch.TextColor = Color.White;
+            btnGitFetch.UseVisualStyleBackColor = false;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(txtRemoteBranchNameToFetch);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(0, 0);
+            panel4.Margin = new Padding(0);
+            panel4.Name = "panel4";
+            panel4.Padding = new Padding(10, 10, 0, 10);
+            panel4.Size = new Size(360, 85);
+            panel4.TabIndex = 2;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(btnGitFetch);
+            panel6.Dock = DockStyle.Fill;
+            panel6.Location = new Point(360, 0);
+            panel6.Margin = new Padding(0);
+            panel6.Name = "panel6";
+            panel6.Padding = new Padding(0, 10, 10, 10);
+            panel6.Size = new Size(195, 85);
+            panel6.TabIndex = 3;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(tblPanelGitBranchInfoHolder);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(3, 61);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(555, 525);
+            flowLayoutPanel1.TabIndex = 1;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Dock = DockStyle.Fill;
+            flowLayoutPanel2.Location = new Point(3, 61);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(555, 376);
+            flowLayoutPanel2.TabIndex = 4;
+            // 
+            // roundedButtonNew1
+            // 
+            roundedButtonNew1.BackColor = Color.FromArgb(63, 64, 69);
+            roundedButtonNew1.BackgroundColor = Color.FromArgb(63, 64, 69);
+            roundedButtonNew1.BorderColor = Color.FromArgb(63, 64, 69);
+            roundedButtonNew1.BorderRadius = 20;
+            roundedButtonNew1.BorderSize = 0;
+            roundedButtonNew1.FlatAppearance.BorderSize = 0;
+            roundedButtonNew1.FlatStyle = FlatStyle.Flat;
+            roundedButtonNew1.Font = new Font("Arial Rounded MT Bold", 9.818182F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roundedButtonNew1.ForeColor = Color.White;
+            roundedButtonNew1.Location = new Point(361, 3);
+            roundedButtonNew1.Name = "roundedButtonNew1";
+            roundedButtonNew1.Size = new Size(143, 44);
+            roundedButtonNew1.TabIndex = 1;
+            roundedButtonNew1.Text = "Switch";
+            roundedButtonNew1.TextColor = Color.White;
+            roundedButtonNew1.UseVisualStyleBackColor = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Dock = DockStyle.Fill;
+            label6.Font = new Font("Arial Rounded MT Bold", 9.818182F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(47, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(308, 50);
+            label6.TabIndex = 0;
+            label6.Text = "placeholderGitBranchName";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // panel18
+            // 
+            panel18.Controls.Add(pictureBox1);
+            panel18.Dock = DockStyle.Fill;
+            panel18.Location = new Point(10, 13);
+            panel18.Margin = new Padding(10, 13, 10, 13);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(24, 24);
+            panel18.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.current_branch_icon;
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Margin = new Padding(0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(24, 24);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // tblPanelGitBranchInfoHolder
+            // 
+            tblPanelGitBranchInfoHolder.ColumnCount = 4;
+            tblPanelGitBranchInfoHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8F));
+            tblPanelGitBranchInfoHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 57F));
+            tblPanelGitBranchInfoHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27F));
+            tblPanelGitBranchInfoHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8F));
+            tblPanelGitBranchInfoHolder.Controls.Add(panel18, 0, 0);
+            tblPanelGitBranchInfoHolder.Controls.Add(label6, 1, 0);
+            tblPanelGitBranchInfoHolder.Controls.Add(roundedButtonNew1, 2, 0);
+            tblPanelGitBranchInfoHolder.Location = new Point(0, 20);
+            tblPanelGitBranchInfoHolder.Margin = new Padding(0, 20, 0, 20);
+            tblPanelGitBranchInfoHolder.Name = "tblPanelGitBranchInfoHolder";
+            tblPanelGitBranchInfoHolder.RowCount = 1;
+            tblPanelGitBranchInfoHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tblPanelGitBranchInfoHolder.Size = new Size(552, 50);
+            tblPanelGitBranchInfoHolder.TabIndex = 0;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
@@ -1148,6 +1428,19 @@
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel1.ResumeLayout(false);
+            tableLayoutPanel17.ResumeLayout(false);
+            tableLayoutPanel18.ResumeLayout(false);
+            tableLayoutPanel18.PerformLayout();
+            tableLayoutPanel19.ResumeLayout(false);
+            tableLayoutPanel19.PerformLayout();
+            tableLayoutPanel20.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            panel18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tblPanelGitBranchInfoHolder.ResumeLayout(false);
+            tblPanelGitBranchInfoHolder.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1218,5 +1511,23 @@
         private TableLayoutPanel tableLayoutPanel15;
         private TableLayoutPanel tableLayoutPanel16;
         private TextBox txtGitStatusResult;
+        private TableLayoutPanel tableLayoutPanel17;
+        private TableLayoutPanel tableLayoutPanel18;
+        private TableLayoutPanel tableLayoutPanel19;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private TableLayoutPanel tableLayoutPanel20;
+        private CustomComponents.LeftRoundedTextBox txtRemoteBranchNameToFetch;
+        private CustomComponents.RightRoundedButton btnGitFetch;
+        private Panel panel4;
+        private Panel panel6;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private TableLayoutPanel tblPanelGitBranchInfoHolder;
+        private Panel panel18;
+        private PictureBox pictureBox1;
+        private Label label6;
+        private CustomComponents.RoundedButtonNew roundedButtonNew1;
     }
 }
