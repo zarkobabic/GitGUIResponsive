@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.Logging;
+﻿using GitGUIResponsive.CustomComponents;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,10 +7,12 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace GitGUIResponsive
 {
@@ -55,6 +58,199 @@ namespace GitGUIResponsive
                 CurrentContainerPanel = panelToSet;
                 panelToSet.Show();
             }
+        }
+
+        private void fillGitBranchOutput()
+        {
+            try
+            {
+                string gitBranchOutput = GitHelper.GitBranch();
+                string[] gitBranchesArray = gitBranchOutput.Split("\n", StringSplitOptions.RemoveEmptyEntries);
+
+                if (gitBranchesArray.Length == 0)
+                {
+                    //Only current branch exists
+                    TableLayoutPanel tblPanelGitBranchInfoHolder = CreateOneElementForGitBranchesFlowLayout($"* {GitHelper.GetCurrentGitBranch}", false);
+                    flwPanelGitBranches.Controls.Add(tblPanelGitBranchInfoHolder);
+                }
+                foreach (string nameOfBranch in gitBranchesArray)
+                {
+                    string branchName = nameOfBranch.Trim();
+                    TableLayoutPanel tblPanelGitBranchInfoHolder = CreateOneElementForGitBranchesFlowLayout(branchName, false);
+                    flwPanelGitBranches.Controls.Add(tblPanelGitBranchInfoHolder);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utility.CreateMessageBox("Error while executing git branch command", $"Unable to execute git branch command. {ex.Message}", Utility.MESSAGE_ERROR);
+            }
+        }
+
+        private void fillGitRemoteBrunchOutput()
+        {
+            try
+            {
+                string gitRemoteBranchOutput = GitHelper.GitRemoteBranch();
+                if (String.IsNullOrWhiteSpace(gitRemoteBranchOutput))
+                {
+                    //No remote Git branch references have been fetched
+                    TableLayoutPanel tblPanelGitBranchInfoHolder = CreateOneElementForGitBranchesFlowLayout("", true);
+                    flwPanelGitRemoteBranches.Controls.Add(tblPanelGitBranchInfoHolder);
+                }
+                else
+                {
+                    string[] gitRemoteBranchesArray = gitRemoteBranchOutput.Split("\n", StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string nameOfBranch in gitRemoteBranchesArray)
+                    {
+                        string branchName = nameOfBranch.Trim();
+                        TableLayoutPanel tblPanelGitBranchInfoHolder = CreateOneElementForGitBranchesFlowLayout(branchName, true);
+                        flwPanelGitRemoteBranches.Controls.Add(tblPanelGitBranchInfoHolder);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.CreateMessageBox("Error while executing git remote branch command", $"Unable to fetch git remote branches. {ex.Message}", Utility.MESSAGE_ERROR);
+            }
+        }
+
+        private TableLayoutPanel CreateOneElementForGitBranchesFlowLayout(string branchName, bool remote)
+        {
+            PictureBox? pictureBoxNew = null;
+            Panel? panelNew = null;
+
+            Label labelNew = new Label();
+            labelNew.AutoSize = true;
+            labelNew.Dock = DockStyle.Fill;
+            labelNew.Font = new Font("Arial Rounded MT Bold", 9.818182F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelNew.Location = new Point(47, 0);
+            labelNew.Name = "lblLabelGenerated";
+            labelNew.Size = new Size(308, 50);
+            labelNew.TabIndex = 0;
+            labelNew.Text = branchName;
+            labelNew.TextAlign = ContentAlignment.MiddleLeft;
+
+            if (branchName != "" && branchName[0].Equals('*') && !remote) //trenutni branch
+            {
+                pictureBoxNew = new PictureBox();
+                pictureBoxNew.BackgroundImage = Properties.Resources.current_branch_icon;
+                pictureBoxNew.Location = new Point(0, 0);
+                pictureBoxNew.Margin = new Padding(0);
+                pictureBoxNew.Name = "picPictureBoxGenerated";
+                pictureBoxNew.Size = new Size(24, 24);
+                pictureBoxNew.TabIndex = 2;
+                pictureBoxNew.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBoxNew.TabStop = false;
+
+
+                panelNew = new Panel();
+                panelNew.Controls.Add(pictureBoxNew);
+                panelNew.Dock = DockStyle.Fill;
+                panelNew.Location = new Point(10, 13);
+                panelNew.Margin = new Padding(10, 13, 10, 13);
+                panelNew.Name = "pnlPictureBoxPanelGenerated";
+                panelNew.Size = new Size(24, 24);
+                panelNew.TabIndex = 0;
+
+                labelNew.ForeColor = Color.FromArgb(61, 205, 88);
+            }
+
+            RoundedButtonNew roundedButtonNew = new RoundedButtonNew();
+            roundedButtonNew.BackgroundColor = Color.FromArgb(63, 64, 69);
+            roundedButtonNew.BorderColor = Color.FromArgb(63, 64, 69);
+            roundedButtonNew.BorderRadius = 20;
+            roundedButtonNew.BorderSize = 0;
+            roundedButtonNew.FlatAppearance.BorderSize = 0;
+            roundedButtonNew.FlatStyle = FlatStyle.Flat;
+            roundedButtonNew.Font = new Font("Arial Rounded MT Bold", 9.818182F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roundedButtonNew.ForeColor = Color.White;
+            roundedButtonNew.Location = new Point(361, 3);
+            roundedButtonNew.Name = "btnRoundedButtonNewGenerated";
+            roundedButtonNew.Size = new Size(143, 44);
+            roundedButtonNew.TabIndex = 1;
+            roundedButtonNew.TextColor = Color.White;
+            roundedButtonNew.UseVisualStyleBackColor = false;
+            roundedButtonNew.Tag = branchName;
+
+            TableLayoutPanel tblPanelGitBranchInfoHolder = new TableLayoutPanel();
+            tblPanelGitBranchInfoHolder.ColumnCount = 4;
+            tblPanelGitBranchInfoHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8F));
+            tblPanelGitBranchInfoHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 57F));
+            tblPanelGitBranchInfoHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27F));
+            tblPanelGitBranchInfoHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8F));
+            if (remote)
+            {
+                if (branchName == "")
+                {
+                    labelNew.Text = "No remote Git branch references have been fetched.";
+                }
+                else
+                {
+                    //Remote git branches exist -> Git remove button
+                    roundedButtonNew.Text = "Remove";
+                    roundedButtonNew.BackColor = Color.Red;
+                    roundedButtonNew.Click += (sender, e) =>
+                    {
+                        try
+                        {
+                            if (GitHelper.GitRemoveRemoteBranchReference(branchName))
+                            {
+                                Utility.CreateMessageBox("Git remove remote branch command executed successfully", $"The reference to the remote branch \"{branchName}\" was successfully deleted from your local repository.", Utility.MESSAGE_SUCCESS);
+                                btnGitBranch_Click(btnGitBranch, e);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Utility.CreateMessageBox("Error while executing git remove remote branch command", $"Unable to delete the reference to the remote branch \"{branchName}\". {ex.Message}", Utility.MESSAGE_ERROR);
+                        }
+                    };
+
+                    tblPanelGitBranchInfoHolder.Controls.Add(roundedButtonNew, 2, 0);
+                }
+            }
+            else
+            {
+                if (panelNew != null)
+                    tblPanelGitBranchInfoHolder.Controls.Add(panelNew, 0, 0);
+                else
+                {
+                    //Not current branch -> Git switch button
+                    roundedButtonNew.BackColor = Color.FromArgb(63, 64, 69);
+                    roundedButtonNew.Text = "Switch";
+                    roundedButtonNew.Click += (sender, e) =>
+                    {
+                        try
+                        {
+                            if (GitHelper.GitSwitch(branchName))
+                            {
+                                Utility.CreateMessageBox("Git switch command executed successfully", $"Switched to branch: {branchName}", Utility.MESSAGE_SUCCESS);
+                                lblCurrentBranch.Text = GitHelper.GetCurrentGitBranch;
+                                btnGitBranch_Click(btnGitBranch, e);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Utility.CreateMessageBox("Error while executing git switch command", $"Unable to execute git switch command. {ex.Message}", Utility.MESSAGE_ERROR);
+                        }
+                    };
+                    tblPanelGitBranchInfoHolder.Controls.Add(roundedButtonNew, 2, 0);
+                }
+            }
+            tblPanelGitBranchInfoHolder.Controls.Add(labelNew, 1, 0);
+            tblPanelGitBranchInfoHolder.Location = new Point(0, 20);
+            tblPanelGitBranchInfoHolder.Margin = new Padding(0, 20, 0, 20);
+            tblPanelGitBranchInfoHolder.Name = "tblPanelGitBranchInfoHolder";
+            tblPanelGitBranchInfoHolder.RowCount = 1;
+            tblPanelGitBranchInfoHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tblPanelGitBranchInfoHolder.Size = new Size(552, 50);
+            tblPanelGitBranchInfoHolder.TabIndex = 0;
+            if (!remote)
+                tblPanelGitBranchInfoHolder.Width = flwPanelGitBranches.Width;
+            else
+                tblPanelGitBranchInfoHolder.Width = flwPanelGitRemoteBranches.Width;
+
+            return tblPanelGitBranchInfoHolder;
         }
 
         //Events
@@ -289,6 +485,48 @@ namespace GitGUIResponsive
             catch (Exception ex)
             {
                 Utility.CreateMessageBox("Error while executing git bundle command", $"Unable to create bundle with name \"{txtBundleName.Text}\", starting from git commit with hash \"{txtBundleStartingCommit.Text}\". {ex.Message}", Utility.MESSAGE_ERROR);
+            }
+        }
+
+        //Git branch panel
+
+        private void btnGitBranch_Click(object sender, EventArgs e)
+        {
+            SetCurrentSelectedButton(btnGitBranch);
+            SetCurrentContainerPanel(tblPanelGitBranch);
+            flwPanelGitBranches.Controls.Clear();
+            flwPanelGitRemoteBranches.Controls.Clear();
+            fillGitBranchOutput();
+            fillGitRemoteBrunchOutput();
+        }
+
+        private void flowLayoutPanel_ResizeChild(object sender, EventArgs e)
+        {
+            foreach (Control control in ((FlowLayoutPanel)sender).Controls)
+            {
+                control.Width = ((FlowLayoutPanel)sender).Width;
+            }
+        }
+
+        private void btnGitFetch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtRemoteBranchNameToFetch.Text))
+                {
+                    Utility.CreateMessageBox("Error while executing git add remote branch command", "The remote branch name must be entered.", Utility.MESSAGE_ERROR);
+                    return;
+                }
+                if (GitHelper.GitFetch(txtRemoteBranchNameToFetch.Text))
+                {
+                    Utility.CreateMessageBox("Git add remote branch command executed successfully", $"The reference to the remote branch \"origin\\{txtRemoteBranchNameToFetch.Text}\" was successfully added to your local repository.", Utility.MESSAGE_SUCCESS);
+                    txtRemoteBranchNameToFetch.Text = "";
+                    btnGitBranch_Click(btnGitBranch, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.CreateMessageBox("Error while executing git add remote branch command", $"Unable to add the reference to the remote branch \"origin\\{txtRemoteBranchNameToFetch.Text}\". {ex.Message}", Utility.MESSAGE_ERROR);
             }
         }
     }

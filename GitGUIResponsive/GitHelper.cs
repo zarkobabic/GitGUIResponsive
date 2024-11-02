@@ -222,5 +222,43 @@ namespace GitGUIResponsive
 
             return GitCommandAction($"bundle create {bundleName} {bundleStartingCommitHash}..");
         }
+
+        public static string GitBranch()
+        {
+            return GitCommandReturningOutput("branch"); 
+        }
+
+        public static bool GitSwitch(string branchName)
+        {
+            if (GitCommandAction($"switch {branchName}"))
+            {
+                CurrentGitBranch = branchName;
+                return true;
+            }
+            else return false;
+        }
+
+        public static string GitRemoteBranch()
+        {
+            return GitCommandReturningOutput("branch -r");
+        }
+
+        public static bool GitRemoveRemoteBranchReference(string remoteBranchName)
+        {
+            return GitCommandAction($"branch -dr {remoteBranchName}");
+        }
+
+        public static bool GitFetch(string branchName)
+        {
+
+            if (string.IsNullOrWhiteSpace(branchName))
+            {
+                throw new InvalidOperationException("The remote branch name must be entered.");
+            }
+
+            return GitCommandAction($"fetch origin {branchName}");
+        }
+
+
     }
 }
