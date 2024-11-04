@@ -1322,7 +1322,7 @@
             Controls.Add(pnlMainContainer);
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormMain";
+            Text = "Git GUI app";
             pnlMainContainer.ResumeLayout(false);
             tblPanelGitBranch.ResumeLayout(false);
             tableLayoutPanel18.ResumeLayout(false);

@@ -72,11 +72,12 @@
             label5.AutoSize = true;
             label5.Font = new Font("Arial Rounded MT Bold", 10F);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(381, 10);
+            label5.Location = new Point(435, 11);
             label5.Name = "label5";
-            label5.Size = new Size(313, 18);
+            label5.Size = new Size(154, 18);
             label5.TabIndex = 13;
-            label5.Text = "All rights reserved | Schneider electric";
+            label5.Text = "All rights reserved";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnLoadRepository
             // 
