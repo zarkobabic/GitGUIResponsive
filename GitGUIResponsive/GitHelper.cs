@@ -339,5 +339,11 @@ namespace GitGUIResponsive
             }
             return false;
         }
+
+        //Git garbage collector
+        public static bool GitRunGarbageCollector()
+        {
+            return GitCommandAction("gc --prune=all");
+        }
     }
 }

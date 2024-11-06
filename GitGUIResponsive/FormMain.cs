@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -537,7 +538,7 @@ namespace GitGUIResponsive
                 tblPanelCherryPickNotActive.Hide();
                 tblPanelCherryPickActive.Show();
                 lblGitCherryPickHeading.Text = "Currently cherry-picking:";
-                lblCurrentCherryPickingCommit.Text = $"Commit: { GitHelper.ReadCurrentGitCherryPickedCommitHash()}";
+                lblCurrentCherryPickingCommit.Text = $"Commit: {GitHelper.ReadCurrentGitCherryPickedCommitHash()}";
             }
             else
             {
@@ -630,6 +631,29 @@ namespace GitGUIResponsive
             {
                 Utility.CreateMessageBox("Error while executing git cherry-pick abort command", $"Failed to execute the git cherry-pick abort command. {ex.Message}", Utility.MESSAGE_ERROR);
                 btnGitCherryPick_Click(btnGitCherryPick, e);
+            }
+        }
+
+        private void gitClearLocalCache_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GitHelper.GitRunGarbageCollector())
+                {
+                    Utility.CreateMessageBox("Git local cache cleared successfully", "Git command git gc --prune=all executed successfully.", Utility.MESSAGE_SUCCESS);
+                    if (CurrentSelectedButton == btnGitCherryPick)
+                        btnGitCherryPick_Click(btnGitCherryPick, new EventArgs());
+                    else if (CurrentSelectedButton == btnGitBranch)
+                        btnGitBranch_Click(btnGitBranch, new EventArgs());
+                    else if (CurrentSelectedButton == btnGitLog)
+                        btnGitLog_Click(btnGitLog, new EventArgs());
+                    else
+                        btnGitStatus_Click(btnGitStatus, new EventArgs());
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.CreateMessageBox("Error while calling git garbage collector to clear local cache", $"Failed to execute git gc --prune=all command. {ex.Message}", Utility.MESSAGE_ERROR);
             }
         }
     }

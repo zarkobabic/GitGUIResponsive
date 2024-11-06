@@ -120,6 +120,7 @@
             lblCurrentBranch = new Label();
             lblCurrentBranchHeading = new Label();
             panel1 = new Panel();
+            gitClearLocalCache = new CustomComponents.RoundedButton();
             btnGitCherryPick = new CustomComponents.RoundedButton();
             btnGitLog = new CustomComponents.RoundedButton();
             btnGitBranch = new CustomComponents.RoundedButton();
@@ -199,6 +200,7 @@
             tblPanelGitCherryPick.Dock = DockStyle.Fill;
             tblPanelGitCherryPick.Location = new Point(20, 127);
             tblPanelGitCherryPick.Name = "tblPanelGitCherryPick";
+            tblPanelGitCherryPick.Padding = new Padding(6);
             tblPanelGitCherryPick.RowCount = 1;
             tblPanelGitCherryPick.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tblPanelGitCherryPick.Size = new Size(1134, 595);
@@ -212,14 +214,14 @@
             tableLayoutPanel17.Controls.Add(label6, 0, 0);
             tableLayoutPanel17.Controls.Add(txtGitCherryPickLogGraphResult, 0, 1);
             tableLayoutPanel17.Dock = DockStyle.Fill;
-            tableLayoutPanel17.Location = new Point(0, 0);
+            tableLayoutPanel17.Location = new Point(6, 6);
             tableLayoutPanel17.Margin = new Padding(0);
             tableLayoutPanel17.Name = "tableLayoutPanel17";
             tableLayoutPanel17.Padding = new Padding(0, 0, 10, 0);
             tableLayoutPanel17.RowCount = 2;
             tableLayoutPanel17.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             tableLayoutPanel17.RowStyles.Add(new RowStyle(SizeType.Percent, 90F));
-            tableLayoutPanel17.Size = new Size(567, 595);
+            tableLayoutPanel17.Size = new Size(561, 583);
             tableLayoutPanel17.TabIndex = 0;
             // 
             // label6
@@ -232,7 +234,7 @@
             label6.Location = new Point(0, 0);
             label6.Margin = new Padding(0);
             label6.Name = "label6";
-            label6.Size = new Size(557, 59);
+            label6.Size = new Size(551, 58);
             label6.TabIndex = 0;
             label6.Text = "Git log tree:";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -242,11 +244,11 @@
             txtGitCherryPickLogGraphResult.BorderStyle = BorderStyle.None;
             txtGitCherryPickLogGraphResult.Dock = DockStyle.Fill;
             txtGitCherryPickLogGraphResult.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtGitCherryPickLogGraphResult.Location = new Point(3, 62);
+            txtGitCherryPickLogGraphResult.Location = new Point(3, 61);
             txtGitCherryPickLogGraphResult.Multiline = true;
             txtGitCherryPickLogGraphResult.Name = "txtGitCherryPickLogGraphResult";
             txtGitCherryPickLogGraphResult.ScrollBars = ScrollBars.Both;
-            txtGitCherryPickLogGraphResult.Size = new Size(551, 530);
+            txtGitCherryPickLogGraphResult.Size = new Size(545, 519);
             txtGitCherryPickLogGraphResult.TabIndex = 1;
             // 
             // tableLayoutPanel21
@@ -259,7 +261,7 @@
             tableLayoutPanel21.Controls.Add(tblPanelCherryPickActive, 0, 1);
             tableLayoutPanel21.Controls.Add(txtGitCherryPickStatusResult, 0, 3);
             tableLayoutPanel21.Dock = DockStyle.Fill;
-            tableLayoutPanel21.Location = new Point(577, 0);
+            tableLayoutPanel21.Location = new Point(577, 6);
             tableLayoutPanel21.Margin = new Padding(10, 0, 0, 0);
             tableLayoutPanel21.Name = "tableLayoutPanel21";
             tableLayoutPanel21.RowCount = 4;
@@ -268,7 +270,7 @@
             tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
             tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel21.Size = new Size(557, 595);
+            tableLayoutPanel21.Size = new Size(551, 583);
             tableLayoutPanel21.TabIndex = 1;
             // 
             // lblGitCherryPickHeading
@@ -281,7 +283,7 @@
             lblGitCherryPickHeading.Location = new Point(0, 0);
             lblGitCherryPickHeading.Margin = new Padding(0);
             lblGitCherryPickHeading.Name = "lblGitCherryPickHeading";
-            lblGitCherryPickHeading.Size = new Size(557, 57);
+            lblGitCherryPickHeading.Size = new Size(551, 56);
             lblGitCherryPickHeading.TabIndex = 1;
             lblGitCherryPickHeading.Text = "Git cherry pick:";
             lblGitCherryPickHeading.TextAlign = ContentAlignment.MiddleCenter;
@@ -293,10 +295,10 @@
             label8.Dock = DockStyle.Fill;
             label8.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.White;
-            label8.Location = new Point(0, 229);
+            label8.Location = new Point(0, 224);
             label8.Margin = new Padding(0);
             label8.Name = "label8";
-            label8.Size = new Size(557, 345);
+            label8.Size = new Size(551, 337);
             label8.TabIndex = 2;
             label8.Text = "Git status:";
             label8.TextAlign = ContentAlignment.MiddleCenter;
@@ -309,11 +311,11 @@
             tblPanelCherryPickNotActive.Controls.Add(panel18, 0, 0);
             tblPanelCherryPickNotActive.Controls.Add(panel19, 1, 0);
             tblPanelCherryPickNotActive.Dock = DockStyle.Fill;
-            tblPanelCherryPickNotActive.Location = new Point(3, 175);
+            tblPanelCherryPickNotActive.Location = new Point(3, 171);
             tblPanelCherryPickNotActive.Name = "tblPanelCherryPickNotActive";
             tblPanelCherryPickNotActive.RowCount = 1;
             tblPanelCherryPickNotActive.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tblPanelCherryPickNotActive.Size = new Size(551, 51);
+            tblPanelCherryPickNotActive.Size = new Size(545, 50);
             tblPanelCherryPickNotActive.TabIndex = 3;
             tblPanelCherryPickNotActive.Visible = false;
             // 
@@ -325,7 +327,7 @@
             panel18.Margin = new Padding(0);
             panel18.Name = "panel18";
             panel18.Padding = new Padding(20, 20, 0, 20);
-            panel18.Size = new Size(385, 51);
+            panel18.Size = new Size(381, 50);
             panel18.TabIndex = 2;
             // 
             // txtCommitHashToCherryPick
@@ -339,7 +341,7 @@
             txtCommitHashToCherryPick.Margin = new Padding(0);
             txtCommitHashToCherryPick.Name = "txtCommitHashToCherryPick";
             txtCommitHashToCherryPick.PlaceholderText = "Enter the commit hash you wish to cherry-pick";
-            txtCommitHashToCherryPick.Size = new Size(365, 11);
+            txtCommitHashToCherryPick.Size = new Size(361, 10);
             txtCommitHashToCherryPick.TabIndex = 0;
             txtCommitHashToCherryPick.TextBoxBackground = Color.White;
             // 
@@ -347,11 +349,11 @@
             // 
             panel19.Controls.Add(btnStartGitCherryPick);
             panel19.Dock = DockStyle.Fill;
-            panel19.Location = new Point(385, 0);
+            panel19.Location = new Point(381, 0);
             panel19.Margin = new Padding(0);
             panel19.Name = "panel19";
             panel19.Padding = new Padding(0, 20, 20, 20);
-            panel19.Size = new Size(166, 51);
+            panel19.Size = new Size(164, 50);
             panel19.TabIndex = 3;
             // 
             // btnStartGitCherryPick
@@ -368,7 +370,7 @@
             btnStartGitCherryPick.ForeColor = Color.White;
             btnStartGitCherryPick.Location = new Point(0, 20);
             btnStartGitCherryPick.Name = "btnStartGitCherryPick";
-            btnStartGitCherryPick.Size = new Size(146, 11);
+            btnStartGitCherryPick.Size = new Size(144, 10);
             btnStartGitCherryPick.TabIndex = 1;
             btnStartGitCherryPick.Text = "Git cherry pick";
             btnStartGitCherryPick.TextColor = Color.White;
@@ -382,13 +384,13 @@
             tblPanelCherryPickActive.Controls.Add(lblCurrentCherryPickingCommit, 0, 0);
             tblPanelCherryPickActive.Controls.Add(tableLayoutPanel22, 0, 1);
             tblPanelCherryPickActive.Dock = DockStyle.Fill;
-            tblPanelCherryPickActive.Location = new Point(0, 57);
+            tblPanelCherryPickActive.Location = new Point(0, 56);
             tblPanelCherryPickActive.Margin = new Padding(0);
             tblPanelCherryPickActive.Name = "tblPanelCherryPickActive";
             tblPanelCherryPickActive.RowCount = 2;
             tblPanelCherryPickActive.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tblPanelCherryPickActive.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tblPanelCherryPickActive.Size = new Size(557, 115);
+            tblPanelCherryPickActive.Size = new Size(551, 112);
             tblPanelCherryPickActive.TabIndex = 4;
             tblPanelCherryPickActive.Visible = false;
             // 
@@ -400,7 +402,7 @@
             lblCurrentCherryPickingCommit.ForeColor = Color.FromArgb(61, 205, 88);
             lblCurrentCherryPickingCommit.Location = new Point(3, 0);
             lblCurrentCherryPickingCommit.Name = "lblCurrentCherryPickingCommit";
-            lblCurrentCherryPickingCommit.Size = new Size(551, 57);
+            lblCurrentCherryPickingCommit.Size = new Size(545, 56);
             lblCurrentCherryPickingCommit.TabIndex = 0;
             lblCurrentCherryPickingCommit.Text = "lblCurrentCherryPickingCommit";
             lblCurrentCherryPickingCommit.TextAlign = ContentAlignment.MiddleLeft;
@@ -414,11 +416,11 @@
             tableLayoutPanel22.Controls.Add(btnGitCherryPickContinue, 0, 0);
             tableLayoutPanel22.Controls.Add(btnGitCherryPickAbort, 1, 0);
             tableLayoutPanel22.Dock = DockStyle.Fill;
-            tableLayoutPanel22.Location = new Point(3, 60);
+            tableLayoutPanel22.Location = new Point(3, 59);
             tableLayoutPanel22.Name = "tableLayoutPanel22";
             tableLayoutPanel22.RowCount = 1;
             tableLayoutPanel22.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel22.Size = new Size(551, 52);
+            tableLayoutPanel22.Size = new Size(545, 50);
             tableLayoutPanel22.TabIndex = 1;
             // 
             // btnGitCherryPickContinue
@@ -436,7 +438,7 @@
             btnGitCherryPickContinue.Location = new Point(6, 6);
             btnGitCherryPickContinue.Margin = new Padding(6);
             btnGitCherryPickContinue.Name = "btnGitCherryPickContinue";
-            btnGitCherryPickContinue.Size = new Size(153, 40);
+            btnGitCherryPickContinue.Size = new Size(151, 38);
             btnGitCherryPickContinue.TabIndex = 0;
             btnGitCherryPickContinue.Text = "Continue";
             btnGitCherryPickContinue.TextColor = Color.White;
@@ -455,10 +457,10 @@
             btnGitCherryPickAbort.FlatStyle = FlatStyle.Flat;
             btnGitCherryPickAbort.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGitCherryPickAbort.ForeColor = Color.White;
-            btnGitCherryPickAbort.Location = new Point(171, 6);
+            btnGitCherryPickAbort.Location = new Point(169, 6);
             btnGitCherryPickAbort.Margin = new Padding(6);
             btnGitCherryPickAbort.Name = "btnGitCherryPickAbort";
-            btnGitCherryPickAbort.Size = new Size(153, 40);
+            btnGitCherryPickAbort.Size = new Size(151, 38);
             btnGitCherryPickAbort.TabIndex = 1;
             btnGitCherryPickAbort.Text = "Abort";
             btnGitCherryPickAbort.TextColor = Color.White;
@@ -470,11 +472,11 @@
             txtGitCherryPickStatusResult.BorderStyle = BorderStyle.None;
             txtGitCherryPickStatusResult.Dock = DockStyle.Fill;
             txtGitCherryPickStatusResult.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtGitCherryPickStatusResult.Location = new Point(3, 577);
+            txtGitCherryPickStatusResult.Location = new Point(3, 564);
             txtGitCherryPickStatusResult.Multiline = true;
             txtGitCherryPickStatusResult.Name = "txtGitCherryPickStatusResult";
             txtGitCherryPickStatusResult.ScrollBars = ScrollBars.Both;
-            txtGitCherryPickStatusResult.Size = new Size(551, 15);
+            txtGitCherryPickStatusResult.Size = new Size(545, 16);
             txtGitCherryPickStatusResult.TabIndex = 5;
             // 
             // tblPanelGitBranch
@@ -1500,7 +1502,7 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(481, 107);
+            panel2.Size = new Size(339, 107);
             panel2.TabIndex = 1;
             // 
             // panel5
@@ -1510,7 +1512,7 @@
             panel5.Dock = DockStyle.Left;
             panel5.Location = new Point(0, 0);
             panel5.Name = "panel5";
-            panel5.Size = new Size(232, 107);
+            panel5.Size = new Size(333, 107);
             panel5.TabIndex = 3;
             // 
             // lblCurrentBranch
@@ -1518,7 +1520,7 @@
             lblCurrentBranch.AutoSize = true;
             lblCurrentBranch.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCurrentBranch.ForeColor = Color.FromArgb(61, 205, 88);
-            lblCurrentBranch.Location = new Point(3, 34);
+            lblCurrentBranch.Location = new Point(3, 37);
             lblCurrentBranch.Margin = new Padding(0, 0, 3, 0);
             lblCurrentBranch.Name = "lblCurrentBranch";
             lblCurrentBranch.Size = new Size(161, 28);
@@ -1539,15 +1541,36 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(gitClearLocalCache);
             panel1.Controls.Add(btnGitCherryPick);
             panel1.Controls.Add(btnGitLog);
             panel1.Controls.Add(btnGitBranch);
             panel1.Controls.Add(btnGitStatus);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(481, 0);
+            panel1.Location = new Point(339, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(653, 107);
+            panel1.Size = new Size(795, 107);
             panel1.TabIndex = 0;
+            // 
+            // gitClearLocalCache
+            // 
+            gitClearLocalCache.BackColor = Color.Maroon;
+            gitClearLocalCache.BackgroundColor = Color.Maroon;
+            gitClearLocalCache.BorderColor = Color.FromArgb(63, 64, 69);
+            gitClearLocalCache.BorderRadius = 0;
+            gitClearLocalCache.BorderSize = 0;
+            gitClearLocalCache.FlatStyle = FlatStyle.Flat;
+            gitClearLocalCache.Font = new Font("Arial Rounded MT Bold", 9.163636F);
+            gitClearLocalCache.ForeColor = Color.White;
+            gitClearLocalCache.Location = new Point(680, 8);
+            gitClearLocalCache.Margin = new Padding(0);
+            gitClearLocalCache.Name = "gitClearLocalCache";
+            gitClearLocalCache.Size = new Size(109, 65);
+            gitClearLocalCache.TabIndex = 5;
+            gitClearLocalCache.Text = "Clear Local Git Cache";
+            gitClearLocalCache.TextColor = Color.White;
+            gitClearLocalCache.UseVisualStyleBackColor = false;
+            gitClearLocalCache.Click += gitClearLocalCache_Click;
             // 
             // btnGitCherryPick
             // 
@@ -1559,7 +1582,7 @@
             btnGitCherryPick.FlatStyle = FlatStyle.Flat;
             btnGitCherryPick.Font = new Font("Arial Rounded MT Bold", 9.163636F);
             btnGitCherryPick.ForeColor = Color.White;
-            btnGitCherryPick.Location = new Point(502, 19);
+            btnGitCherryPick.Location = new Point(515, 7);
             btnGitCherryPick.Margin = new Padding(0);
             btnGitCherryPick.Name = "btnGitCherryPick";
             btnGitCherryPick.Size = new Size(146, 67);
@@ -1579,7 +1602,7 @@
             btnGitLog.FlatStyle = FlatStyle.Flat;
             btnGitLog.Font = new Font("Arial Rounded MT Bold", 9.163636F);
             btnGitLog.ForeColor = Color.White;
-            btnGitLog.Location = new Point(356, 19);
+            btnGitLog.Location = new Point(369, 7);
             btnGitLog.Margin = new Padding(0);
             btnGitLog.Name = "btnGitLog";
             btnGitLog.Size = new Size(146, 67);
@@ -1599,7 +1622,7 @@
             btnGitBranch.FlatStyle = FlatStyle.Flat;
             btnGitBranch.Font = new Font("Arial Rounded MT Bold", 9.163636F);
             btnGitBranch.ForeColor = Color.White;
-            btnGitBranch.Location = new Point(209, 19);
+            btnGitBranch.Location = new Point(222, 7);
             btnGitBranch.Margin = new Padding(0);
             btnGitBranch.Name = "btnGitBranch";
             btnGitBranch.Size = new Size(147, 67);
@@ -1619,7 +1642,7 @@
             btnGitStatus.FlatStyle = FlatStyle.Flat;
             btnGitStatus.Font = new Font("Arial Rounded MT Bold", 9.163636F);
             btnGitStatus.ForeColor = Color.White;
-            btnGitStatus.Location = new Point(60, 19);
+            btnGitStatus.Location = new Point(73, 7);
             btnGitStatus.Margin = new Padding(0);
             btnGitStatus.Name = "btnGitStatus";
             btnGitStatus.Size = new Size(149, 67);
@@ -1798,5 +1821,6 @@
         private CustomComponents.RoundedButtonNew btnGitCherryPickAbort;
         private TextBox txtGitCherryPickLogGraphResult;
         private TextBox txtGitCherryPickStatusResult;
+        private CustomComponents.RoundedButton gitClearLocalCache;
     }
 }
