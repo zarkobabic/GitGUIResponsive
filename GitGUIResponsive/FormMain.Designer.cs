@@ -29,6 +29,24 @@
         private void InitializeComponent()
         {
             pnlMainContainer = new Panel();
+            tblPanelGitCherryPick = new TableLayoutPanel();
+            tableLayoutPanel17 = new TableLayoutPanel();
+            label6 = new Label();
+            txtGitCherryPickLogGraphResult = new TextBox();
+            tableLayoutPanel21 = new TableLayoutPanel();
+            lblGitCherryPickHeading = new Label();
+            label8 = new Label();
+            tblPanelCherryPickNotActive = new TableLayoutPanel();
+            panel18 = new Panel();
+            txtCommitHashToCherryPick = new CustomComponents.LeftRoundedTextBox();
+            panel19 = new Panel();
+            btnStartGitCherryPick = new CustomComponents.RightRoundedButton();
+            tblPanelCherryPickActive = new TableLayoutPanel();
+            lblCurrentCherryPickingCommit = new Label();
+            tableLayoutPanel22 = new TableLayoutPanel();
+            btnGitCherryPickContinue = new CustomComponents.RoundedButtonNew();
+            btnGitCherryPickAbort = new CustomComponents.RoundedButtonNew();
+            txtGitCherryPickStatusResult = new TextBox();
             tblPanelGitBranch = new TableLayoutPanel();
             tableLayoutPanel18 = new TableLayoutPanel();
             label4 = new Label();
@@ -107,6 +125,14 @@
             btnGitBranch = new CustomComponents.RoundedButton();
             btnGitStatus = new CustomComponents.RoundedButton();
             pnlMainContainer.SuspendLayout();
+            tblPanelGitCherryPick.SuspendLayout();
+            tableLayoutPanel17.SuspendLayout();
+            tableLayoutPanel21.SuspendLayout();
+            tblPanelCherryPickNotActive.SuspendLayout();
+            panel18.SuspendLayout();
+            panel19.SuspendLayout();
+            tblPanelCherryPickActive.SuspendLayout();
+            tableLayoutPanel22.SuspendLayout();
             tblPanelGitBranch.SuspendLayout();
             tableLayoutPanel18.SuspendLayout();
             tableLayoutPanel20.SuspendLayout();
@@ -151,6 +177,7 @@
             // 
             // pnlMainContainer
             // 
+            pnlMainContainer.Controls.Add(tblPanelGitCherryPick);
             pnlMainContainer.Controls.Add(tblPanelGitBranch);
             pnlMainContainer.Controls.Add(tblPanelGitLog);
             pnlMainContainer.Controls.Add(tblPanelGitStatus);
@@ -161,6 +188,294 @@
             pnlMainContainer.Padding = new Padding(20);
             pnlMainContainer.Size = new Size(1174, 742);
             pnlMainContainer.TabIndex = 0;
+            // 
+            // tblPanelGitCherryPick
+            // 
+            tblPanelGitCherryPick.ColumnCount = 2;
+            tblPanelGitCherryPick.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tblPanelGitCherryPick.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tblPanelGitCherryPick.Controls.Add(tableLayoutPanel17, 0, 0);
+            tblPanelGitCherryPick.Controls.Add(tableLayoutPanel21, 1, 0);
+            tblPanelGitCherryPick.Dock = DockStyle.Fill;
+            tblPanelGitCherryPick.Location = new Point(20, 127);
+            tblPanelGitCherryPick.Name = "tblPanelGitCherryPick";
+            tblPanelGitCherryPick.RowCount = 1;
+            tblPanelGitCherryPick.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tblPanelGitCherryPick.Size = new Size(1134, 595);
+            tblPanelGitCherryPick.TabIndex = 6;
+            tblPanelGitCherryPick.Visible = false;
+            // 
+            // tableLayoutPanel17
+            // 
+            tableLayoutPanel17.ColumnCount = 1;
+            tableLayoutPanel17.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel17.Controls.Add(label6, 0, 0);
+            tableLayoutPanel17.Controls.Add(txtGitCherryPickLogGraphResult, 0, 1);
+            tableLayoutPanel17.Dock = DockStyle.Fill;
+            tableLayoutPanel17.Location = new Point(0, 0);
+            tableLayoutPanel17.Margin = new Padding(0);
+            tableLayoutPanel17.Name = "tableLayoutPanel17";
+            tableLayoutPanel17.Padding = new Padding(0, 0, 10, 0);
+            tableLayoutPanel17.RowCount = 2;
+            tableLayoutPanel17.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel17.RowStyles.Add(new RowStyle(SizeType.Percent, 90F));
+            tableLayoutPanel17.Size = new Size(567, 595);
+            tableLayoutPanel17.TabIndex = 0;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.FromArgb(61, 205, 88);
+            label6.Dock = DockStyle.Fill;
+            label6.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(0, 0);
+            label6.Margin = new Padding(0);
+            label6.Name = "label6";
+            label6.Size = new Size(557, 59);
+            label6.TabIndex = 0;
+            label6.Text = "Git log tree:";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtGitCherryPickLogGraphResult
+            // 
+            txtGitCherryPickLogGraphResult.BorderStyle = BorderStyle.None;
+            txtGitCherryPickLogGraphResult.Dock = DockStyle.Fill;
+            txtGitCherryPickLogGraphResult.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtGitCherryPickLogGraphResult.Location = new Point(3, 62);
+            txtGitCherryPickLogGraphResult.Multiline = true;
+            txtGitCherryPickLogGraphResult.Name = "txtGitCherryPickLogGraphResult";
+            txtGitCherryPickLogGraphResult.ScrollBars = ScrollBars.Both;
+            txtGitCherryPickLogGraphResult.Size = new Size(551, 530);
+            txtGitCherryPickLogGraphResult.TabIndex = 1;
+            // 
+            // tableLayoutPanel21
+            // 
+            tableLayoutPanel21.ColumnCount = 1;
+            tableLayoutPanel21.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel21.Controls.Add(lblGitCherryPickHeading, 0, 0);
+            tableLayoutPanel21.Controls.Add(label8, 0, 2);
+            tableLayoutPanel21.Controls.Add(tblPanelCherryPickNotActive, 0, 1);
+            tableLayoutPanel21.Controls.Add(tblPanelCherryPickActive, 0, 1);
+            tableLayoutPanel21.Controls.Add(txtGitCherryPickStatusResult, 0, 3);
+            tableLayoutPanel21.Dock = DockStyle.Fill;
+            tableLayoutPanel21.Location = new Point(577, 0);
+            tableLayoutPanel21.Margin = new Padding(10, 0, 0, 0);
+            tableLayoutPanel21.Name = "tableLayoutPanel21";
+            tableLayoutPanel21.RowCount = 4;
+            tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
+            tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel21.Size = new Size(557, 595);
+            tableLayoutPanel21.TabIndex = 1;
+            // 
+            // lblGitCherryPickHeading
+            // 
+            lblGitCherryPickHeading.AutoSize = true;
+            lblGitCherryPickHeading.BackColor = Color.FromArgb(61, 205, 88);
+            lblGitCherryPickHeading.Dock = DockStyle.Fill;
+            lblGitCherryPickHeading.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblGitCherryPickHeading.ForeColor = Color.White;
+            lblGitCherryPickHeading.Location = new Point(0, 0);
+            lblGitCherryPickHeading.Margin = new Padding(0);
+            lblGitCherryPickHeading.Name = "lblGitCherryPickHeading";
+            lblGitCherryPickHeading.Size = new Size(557, 57);
+            lblGitCherryPickHeading.TabIndex = 1;
+            lblGitCherryPickHeading.Text = "Git cherry pick:";
+            lblGitCherryPickHeading.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.FromArgb(61, 205, 88);
+            label8.Dock = DockStyle.Fill;
+            label8.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(0, 229);
+            label8.Margin = new Padding(0);
+            label8.Name = "label8";
+            label8.Size = new Size(557, 345);
+            label8.TabIndex = 2;
+            label8.Text = "Git status:";
+            label8.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tblPanelCherryPickNotActive
+            // 
+            tblPanelCherryPickNotActive.ColumnCount = 2;
+            tblPanelCherryPickNotActive.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            tblPanelCherryPickNotActive.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tblPanelCherryPickNotActive.Controls.Add(panel18, 0, 0);
+            tblPanelCherryPickNotActive.Controls.Add(panel19, 1, 0);
+            tblPanelCherryPickNotActive.Dock = DockStyle.Fill;
+            tblPanelCherryPickNotActive.Location = new Point(3, 175);
+            tblPanelCherryPickNotActive.Name = "tblPanelCherryPickNotActive";
+            tblPanelCherryPickNotActive.RowCount = 1;
+            tblPanelCherryPickNotActive.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tblPanelCherryPickNotActive.Size = new Size(551, 51);
+            tblPanelCherryPickNotActive.TabIndex = 3;
+            tblPanelCherryPickNotActive.Visible = false;
+            // 
+            // panel18
+            // 
+            panel18.Controls.Add(txtCommitHashToCherryPick);
+            panel18.Dock = DockStyle.Fill;
+            panel18.Location = new Point(0, 0);
+            panel18.Margin = new Padding(0);
+            panel18.Name = "panel18";
+            panel18.Padding = new Padding(20, 20, 0, 20);
+            panel18.Size = new Size(385, 51);
+            panel18.TabIndex = 2;
+            // 
+            // txtCommitHashToCherryPick
+            // 
+            txtCommitHashToCherryPick.BackColor = Color.White;
+            txtCommitHashToCherryPick.BorderColor = Color.FromArgb(63, 64, 69);
+            txtCommitHashToCherryPick.BorderRadius = 30;
+            txtCommitHashToCherryPick.Dock = DockStyle.Fill;
+            txtCommitHashToCherryPick.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCommitHashToCherryPick.Location = new Point(20, 20);
+            txtCommitHashToCherryPick.Margin = new Padding(0);
+            txtCommitHashToCherryPick.Name = "txtCommitHashToCherryPick";
+            txtCommitHashToCherryPick.PlaceholderText = "Enter the commit hash you wish to cherry-pick";
+            txtCommitHashToCherryPick.Size = new Size(365, 11);
+            txtCommitHashToCherryPick.TabIndex = 0;
+            txtCommitHashToCherryPick.TextBoxBackground = Color.White;
+            // 
+            // panel19
+            // 
+            panel19.Controls.Add(btnStartGitCherryPick);
+            panel19.Dock = DockStyle.Fill;
+            panel19.Location = new Point(385, 0);
+            panel19.Margin = new Padding(0);
+            panel19.Name = "panel19";
+            panel19.Padding = new Padding(0, 20, 20, 20);
+            panel19.Size = new Size(166, 51);
+            panel19.TabIndex = 3;
+            // 
+            // btnStartGitCherryPick
+            // 
+            btnStartGitCherryPick.BackColor = Color.FromArgb(63, 64, 69);
+            btnStartGitCherryPick.BackgroundColor = Color.FromArgb(63, 64, 69);
+            btnStartGitCherryPick.BorderColor = Color.FromArgb(63, 64, 69);
+            btnStartGitCherryPick.BorderRadius = 65;
+            btnStartGitCherryPick.BorderSize = 0;
+            btnStartGitCherryPick.Dock = DockStyle.Fill;
+            btnStartGitCherryPick.FlatAppearance.BorderSize = 0;
+            btnStartGitCherryPick.FlatStyle = FlatStyle.Flat;
+            btnStartGitCherryPick.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnStartGitCherryPick.ForeColor = Color.White;
+            btnStartGitCherryPick.Location = new Point(0, 20);
+            btnStartGitCherryPick.Name = "btnStartGitCherryPick";
+            btnStartGitCherryPick.Size = new Size(146, 11);
+            btnStartGitCherryPick.TabIndex = 1;
+            btnStartGitCherryPick.Text = "Git cherry pick";
+            btnStartGitCherryPick.TextColor = Color.White;
+            btnStartGitCherryPick.UseVisualStyleBackColor = false;
+            btnStartGitCherryPick.Click += btnStartGitCherryPick_Click;
+            // 
+            // tblPanelCherryPickActive
+            // 
+            tblPanelCherryPickActive.ColumnCount = 1;
+            tblPanelCherryPickActive.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tblPanelCherryPickActive.Controls.Add(lblCurrentCherryPickingCommit, 0, 0);
+            tblPanelCherryPickActive.Controls.Add(tableLayoutPanel22, 0, 1);
+            tblPanelCherryPickActive.Dock = DockStyle.Fill;
+            tblPanelCherryPickActive.Location = new Point(0, 57);
+            tblPanelCherryPickActive.Margin = new Padding(0);
+            tblPanelCherryPickActive.Name = "tblPanelCherryPickActive";
+            tblPanelCherryPickActive.RowCount = 2;
+            tblPanelCherryPickActive.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tblPanelCherryPickActive.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tblPanelCherryPickActive.Size = new Size(557, 115);
+            tblPanelCherryPickActive.TabIndex = 4;
+            tblPanelCherryPickActive.Visible = false;
+            // 
+            // lblCurrentCherryPickingCommit
+            // 
+            lblCurrentCherryPickingCommit.AutoSize = true;
+            lblCurrentCherryPickingCommit.Dock = DockStyle.Fill;
+            lblCurrentCherryPickingCommit.Font = new Font("Arial Rounded MT Bold", 15.7090912F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCurrentCherryPickingCommit.ForeColor = Color.FromArgb(61, 205, 88);
+            lblCurrentCherryPickingCommit.Location = new Point(3, 0);
+            lblCurrentCherryPickingCommit.Name = "lblCurrentCherryPickingCommit";
+            lblCurrentCherryPickingCommit.Size = new Size(551, 57);
+            lblCurrentCherryPickingCommit.TabIndex = 0;
+            lblCurrentCherryPickingCommit.Text = "lblCurrentCherryPickingCommit";
+            lblCurrentCherryPickingCommit.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel22
+            // 
+            tableLayoutPanel22.ColumnCount = 3;
+            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tableLayoutPanel22.Controls.Add(btnGitCherryPickContinue, 0, 0);
+            tableLayoutPanel22.Controls.Add(btnGitCherryPickAbort, 1, 0);
+            tableLayoutPanel22.Dock = DockStyle.Fill;
+            tableLayoutPanel22.Location = new Point(3, 60);
+            tableLayoutPanel22.Name = "tableLayoutPanel22";
+            tableLayoutPanel22.RowCount = 1;
+            tableLayoutPanel22.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel22.Size = new Size(551, 52);
+            tableLayoutPanel22.TabIndex = 1;
+            // 
+            // btnGitCherryPickContinue
+            // 
+            btnGitCherryPickContinue.BackColor = Color.FromArgb(63, 64, 69);
+            btnGitCherryPickContinue.BackgroundColor = Color.FromArgb(63, 64, 69);
+            btnGitCherryPickContinue.BorderColor = Color.FromArgb(63, 64, 69);
+            btnGitCherryPickContinue.BorderRadius = 20;
+            btnGitCherryPickContinue.BorderSize = 0;
+            btnGitCherryPickContinue.Dock = DockStyle.Fill;
+            btnGitCherryPickContinue.FlatAppearance.BorderSize = 0;
+            btnGitCherryPickContinue.FlatStyle = FlatStyle.Flat;
+            btnGitCherryPickContinue.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGitCherryPickContinue.ForeColor = Color.White;
+            btnGitCherryPickContinue.Location = new Point(6, 6);
+            btnGitCherryPickContinue.Margin = new Padding(6);
+            btnGitCherryPickContinue.Name = "btnGitCherryPickContinue";
+            btnGitCherryPickContinue.Size = new Size(153, 40);
+            btnGitCherryPickContinue.TabIndex = 0;
+            btnGitCherryPickContinue.Text = "Continue";
+            btnGitCherryPickContinue.TextColor = Color.White;
+            btnGitCherryPickContinue.UseVisualStyleBackColor = false;
+            btnGitCherryPickContinue.Click += btnGitCherryPickContinue_Click;
+            // 
+            // btnGitCherryPickAbort
+            // 
+            btnGitCherryPickAbort.BackColor = Color.FromArgb(63, 64, 69);
+            btnGitCherryPickAbort.BackgroundColor = Color.FromArgb(63, 64, 69);
+            btnGitCherryPickAbort.BorderColor = Color.FromArgb(63, 64, 69);
+            btnGitCherryPickAbort.BorderRadius = 20;
+            btnGitCherryPickAbort.BorderSize = 0;
+            btnGitCherryPickAbort.Dock = DockStyle.Fill;
+            btnGitCherryPickAbort.FlatAppearance.BorderSize = 0;
+            btnGitCherryPickAbort.FlatStyle = FlatStyle.Flat;
+            btnGitCherryPickAbort.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGitCherryPickAbort.ForeColor = Color.White;
+            btnGitCherryPickAbort.Location = new Point(171, 6);
+            btnGitCherryPickAbort.Margin = new Padding(6);
+            btnGitCherryPickAbort.Name = "btnGitCherryPickAbort";
+            btnGitCherryPickAbort.Size = new Size(153, 40);
+            btnGitCherryPickAbort.TabIndex = 1;
+            btnGitCherryPickAbort.Text = "Abort";
+            btnGitCherryPickAbort.TextColor = Color.White;
+            btnGitCherryPickAbort.UseVisualStyleBackColor = false;
+            btnGitCherryPickAbort.Click += btnGitCherryPickAbort_Click;
+            // 
+            // txtGitCherryPickStatusResult
+            // 
+            txtGitCherryPickStatusResult.BorderStyle = BorderStyle.None;
+            txtGitCherryPickStatusResult.Dock = DockStyle.Fill;
+            txtGitCherryPickStatusResult.Font = new Font("Arial Rounded MT Bold", 9.163636F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtGitCherryPickStatusResult.Location = new Point(3, 577);
+            txtGitCherryPickStatusResult.Multiline = true;
+            txtGitCherryPickStatusResult.Name = "txtGitCherryPickStatusResult";
+            txtGitCherryPickStatusResult.ScrollBars = ScrollBars.Both;
+            txtGitCherryPickStatusResult.Size = new Size(551, 15);
+            txtGitCherryPickStatusResult.TabIndex = 5;
             // 
             // tblPanelGitBranch
             // 
@@ -1252,6 +1567,7 @@
             btnGitCherryPick.Text = "Cherry-Pick";
             btnGitCherryPick.TextColor = Color.White;
             btnGitCherryPick.UseVisualStyleBackColor = false;
+            btnGitCherryPick.Click += btnGitCherryPick_Click;
             // 
             // btnGitLog
             // 
@@ -1324,6 +1640,17 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Git GUI app";
             pnlMainContainer.ResumeLayout(false);
+            tblPanelGitCherryPick.ResumeLayout(false);
+            tableLayoutPanel17.ResumeLayout(false);
+            tableLayoutPanel17.PerformLayout();
+            tableLayoutPanel21.ResumeLayout(false);
+            tableLayoutPanel21.PerformLayout();
+            tblPanelCherryPickNotActive.ResumeLayout(false);
+            panel18.ResumeLayout(false);
+            panel19.ResumeLayout(false);
+            tblPanelCherryPickActive.ResumeLayout(false);
+            tblPanelCherryPickActive.PerformLayout();
+            tableLayoutPanel22.ResumeLayout(false);
             tblPanelGitBranch.ResumeLayout(false);
             tableLayoutPanel18.ResumeLayout(false);
             tableLayoutPanel18.PerformLayout();
@@ -1453,5 +1780,23 @@
         private Panel panel6;
         private FlowLayoutPanel flwPanelGitRemoteBranches;
         private FlowLayoutPanel flwPanelGitBranches;
+        private TableLayoutPanel tblPanelGitCherryPick;
+        private TableLayoutPanel tableLayoutPanel17;
+        private Label label6;
+        private TableLayoutPanel tableLayoutPanel21;
+        private Label lblGitCherryPickHeading;
+        private Label label8;
+        private TableLayoutPanel tblPanelCherryPickNotActive;
+        private Panel panel18;
+        private CustomComponents.LeftRoundedTextBox txtCommitHashToCherryPick;
+        private Panel panel19;
+        private CustomComponents.RightRoundedButton btnStartGitCherryPick;
+        private TableLayoutPanel tblPanelCherryPickActive;
+        private Label lblCurrentCherryPickingCommit;
+        private TableLayoutPanel tableLayoutPanel22;
+        private CustomComponents.RoundedButtonNew btnGitCherryPickContinue;
+        private CustomComponents.RoundedButtonNew btnGitCherryPickAbort;
+        private TextBox txtGitCherryPickLogGraphResult;
+        private TextBox txtGitCherryPickStatusResult;
     }
 }

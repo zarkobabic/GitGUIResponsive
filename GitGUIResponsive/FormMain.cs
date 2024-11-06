@@ -318,7 +318,7 @@ namespace GitGUIResponsive
             }
             catch (Exception ex)
             {
-                Utility.CreateMessageBox("Error while executing git restore command", $"Failed to execute the git restore command with file path \"{txtFilePathToGitRestore}\". {ex.Message}", Utility.MESSAGE_ERROR);
+                Utility.CreateMessageBox("Error while executing git restore command", $"Failed to execute the git restore command with file path \"{txtFilePathToGitRestore.Text}\". {ex.Message}", Utility.MESSAGE_ERROR);
             }
         }
 
@@ -356,7 +356,7 @@ namespace GitGUIResponsive
             }
             catch (Exception ex)
             {
-                Utility.CreateMessageBox("Error while executing git add command", $"Failed to execute the git add command with file path \"{txtFilePathToGitAdd}\". {ex.Message}", Utility.MESSAGE_ERROR);
+                Utility.CreateMessageBox("Error while executing git add command", $"Failed to execute the git add command with file path \"{txtFilePathToGitAdd.Text}\". {ex.Message}", Utility.MESSAGE_ERROR);
             }
         }
 
@@ -527,6 +527,109 @@ namespace GitGUIResponsive
             catch (Exception ex)
             {
                 Utility.CreateMessageBox("Error while executing git add remote branch command", $"Unable to add the reference to the remote branch \"origin\\{txtRemoteBranchNameToFetch.Text}\". {ex.Message}", Utility.MESSAGE_ERROR);
+            }
+        }
+
+        private void ShowPanelForGitCherryPickStatus()
+        {
+            if (GitHelper.IsGitCherryPickingInProgress())
+            {
+                tblPanelCherryPickNotActive.Hide();
+                tblPanelCherryPickActive.Show();
+                lblGitCherryPickHeading.Text = "Currently cherry-picking:";
+                lblCurrentCherryPickingCommit.Text = $"Commit: { GitHelper.ReadCurrentGitCherryPickedCommitHash()}";
+            }
+            else
+            {
+                tblPanelCherryPickActive.Hide();
+                tblPanelCherryPickNotActive.Show();
+                lblGitCherryPickHeading.Text = "Start git cherry pick:";
+            }
+        }
+
+        //Git cherry pick panel
+        private void btnGitCherryPick_Click(object sender, EventArgs e)
+        {
+            SetCurrentSelectedButton(btnGitCherryPick);
+            SetCurrentContainerPanel(tblPanelGitCherryPick);
+            ShowPanelForGitCherryPickStatus();
+
+            try
+            {
+                string gitLogGraphOutput = GitHelper.GitLogGraph();
+                txtGitCherryPickLogGraphResult.Text = gitLogGraphOutput.Replace("\n", Environment.NewLine) + Environment.NewLine;
+            }
+            catch (Exception ex)
+            {
+                Utility.CreateMessageBox("Error while executing git log graph command", $"Unable to execute git log graph command. {ex.Message}", Utility.MESSAGE_ERROR);
+            }
+
+            try
+            {
+                string gitStatusOutput = GitHelper.GitStatus();
+                txtGitCherryPickStatusResult.Text = gitStatusOutput.Replace("\n", Environment.NewLine) + Environment.NewLine;
+            }
+            catch (Exception ex)
+            {
+                Utility.CreateMessageBox("Error while executing git status command", $"Unable to execute git status command. {ex.Message}", Utility.MESSAGE_ERROR);
+            }
+        }
+
+        private void btnStartGitCherryPick_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtCommitHashToCherryPick.Text))
+                {
+                    Utility.CreateMessageBox("Error while executing git cherry-pick command", $"Failed to execute the git cherry-pick command, missing commit hash.", Utility.MESSAGE_ERROR);
+                    return;
+                }
+                if (GitHelper.GitCherryPick(txtCommitHashToCherryPick.Text))
+                {
+                    Utility.CreateMessageBox("Git cherry-pick command executed successfully", $"The commit with hash \"{txtCommitHashToCherryPick.Text}\" was successfully cherry picked to {GitHelper.GetCurrentGitBranch}, to complete please commit changes.", Utility.MESSAGE_SUCCESS);
+                    txtCommitHashToCherryPick.Text = "";
+                    btnGitCherryPick_Click(btnGitCherryPick, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.CreateMessageBox("Error while executing git cherry-pick command", $"Failed to execute the git cherry-picking of commit with hash \"{txtCommitHashToCherryPick.Text}\". {ex.Message}", Utility.MESSAGE_ERROR);
+                btnGitCherryPick_Click(btnGitCherryPick, e);
+            }
+        }
+
+        private void btnGitCherryPickContinue_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GitHelper.GitCherryPickContinue())
+                {
+                    Utility.CreateMessageBox("Git cherry-pick continue command executed successfully", $"The {lblCurrentCherryPickingCommit.Text} has been successfully cherry-picked.", Utility.MESSAGE_SUCCESS);
+                    txtCommitHashToCherryPick.Text = "";
+                    btnGitCherryPick_Click(btnGitCherryPick, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.CreateMessageBox("Error while executing git cherry-pick continue command", $"Failed to execute the git cherry-pick continue command. {ex.Message}", Utility.MESSAGE_ERROR);
+                btnGitCherryPick_Click(btnGitCherryPick, e);
+            }
+        }
+
+        private void btnGitCherryPickAbort_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (GitHelper.GitCherryPickAbort())
+                {
+                    Utility.CreateMessageBox("Git cherry-pick abort command executed successfully", $"The cherry-picking of {lblCurrentCherryPickingCommit.Text} has been aborted.", Utility.MESSAGE_SUCCESS);
+                    btnGitCherryPick_Click(btnGitCherryPick, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.CreateMessageBox("Error while executing git cherry-pick abort command", $"Failed to execute the git cherry-pick abort command. {ex.Message}", Utility.MESSAGE_ERROR);
+                btnGitCherryPick_Click(btnGitCherryPick, e);
             }
         }
     }

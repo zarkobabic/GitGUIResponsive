@@ -16,7 +16,7 @@ namespace GitGUIResponsive
         //Fields
         private static string CurrentGitRepo { get; set; } = "";
         private static string CurrentGitBranch { get; set; } = "Git repository is not initialized";
-        private static string CurrentGitCherryPickedCommitHash { get; set; } = "";
+        private static string CurrentGitCherryPickedCommitHash { get; set; } = null;
 
         //Getters and setters
         public static string GetCurrentGitRepo => CurrentGitRepo;
@@ -259,6 +259,85 @@ namespace GitGUIResponsive
             return GitCommandAction($"fetch origin {branchName}");
         }
 
+        //Git cherry pick view
 
+        public static bool IsGitCherryPickingInProgress()
+        {
+            try
+            {
+                string cherryPickHeadPath = Path.Combine(CurrentGitRepo, ".git", "CHERRY_PICK_HEAD");
+                return File.Exists(cherryPickHeadPath);
+            }
+            catch (Exception ex)
+            {
+                Utility.CreateMessageBox("Git cherry pick status check error", "Error checking cherry-pick status: " + ex.Message, Utility.MESSAGE_ERROR);
+                return false;
+            }
+        }
+
+        public static bool GitCherryPick(string commitHash)
+        {
+
+            if (string.IsNullOrWhiteSpace(commitHash))
+            {
+                throw new InvalidOperationException("You must enter the commit hash for the commit you want to cherry-pick.");
+            }
+            return GitCommandAction($"cherry-pick {commitHash}");
+        }
+
+        public static string GitLogGraph()
+        {
+            return GitCommandReturningOutput("log --all --graph --oneline --decorate");
+        }
+
+        public static string ReadCurrentGitCherryPickedCommitHash()
+        {
+            if(CurrentGitCherryPickedCommitHash == null) //First time read from file, every other read from variable until resolved
+            {
+                try
+                {
+                    string cherryPickHeadPath = Path.Combine(CurrentGitRepo, ".git", "CHERRY_PICK_HEAD");
+                    if (File.Exists(cherryPickHeadPath))
+                    {
+                        string fullCommitHash = File.ReadAllText(cherryPickHeadPath).Trim();
+                        CurrentGitCherryPickedCommitHash = fullCommitHash[..7];
+                        return CurrentGitCherryPickedCommitHash;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Utility.CreateMessageBox("Error reading cherry-pick commit hash", $"Error reading cherry-pick commit hash: {ex.Message}", Utility.MESSAGE_ERROR);
+                    return null;
+                }
+            }
+            else
+            {
+                return CurrentGitCherryPickedCommitHash;
+            }
+        }
+
+        public static bool GitCherryPickContinue()
+        {
+            if(GitCommandAction("cherry-pick --continue --no-edit"))
+            {
+                CurrentGitCherryPickedCommitHash = null;
+                return true;
+            }
+            return false;
+        }
+
+        public static bool GitCherryPickAbort()
+        {
+            if (GitCommandAction("cherry-pick --abort"))
+            {
+                CurrentGitCherryPickedCommitHash = null;
+                return true;
+            }
+            return false;
+        }
     }
 }
